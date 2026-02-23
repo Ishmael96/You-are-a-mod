@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: moderation-squad
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn moderation_squad_render:app
+    plan: free
+    envVars:
+      - key: SECRET_KEY
+        value: modsquad_2025_key_secure
